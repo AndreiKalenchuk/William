@@ -1,5 +1,14 @@
+/*
+var userName = "andreikalianchuk1";
+var accessKey = "1iad6xYJqPxo46qUe6ri"
+var browserstackURL = 'https://' + userName + ':' + accessKey + '@hub-cloud.browserstack.com/wd/hub';
+*/
+
 exports.config = {
-    //
+    //Browser Stack configuration
+    user: process.env.BROWERSTACK_USERNAME, //'andreikalianchuk1',
+    key: process.env.BROWSERSTACK_KEY, // '1iad6xYJqPxo46qUe6ri'
+
     // ====================
     // Runner Configuration
     // ====================
@@ -46,19 +55,14 @@ exports.config = {
     // https://docs.saucelabs.com/reference/platforms-configurator
     //
     capabilities: [{
-    
-        // maxInstances can get overwritten per capability. So if you have an in-house Selenium
-        // grid with only 5 firefox instances available you can make sure that not more than
-        // 5 instances get started at a time.
-        maxInstances: 5,
-        //
+        maxInstances: 3,
         browserName: 'chrome',
-        acceptInsecureCerts: true
-        // If outputDir is provided WebdriverIO can capture driver session logs
-        // it is possible to configure which logTypes to include/exclude.
-        // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
-        // excludeDriverLogs: ['bugreport', 'server'],
-    }],
+    },
+        {
+            maxInstances: 3,
+            browserName: 'firefox',
+        }],
+
     //
     // ===================
     // Test Configurations
@@ -66,7 +70,7 @@ exports.config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'warn',
+    logLevel: 'silent',
     //
     // Set specific log levels per logger
     // loggers:
@@ -106,8 +110,8 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['chromedriver'],
-    
+    services: ['browserstack'],
+
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: https://webdriver.io/docs/frameworks.html
@@ -129,9 +133,10 @@ exports.config = {
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter.html
     reporters: [
-        ['junit', {
+        ['junit',
+            {
             outputDir: './report',
-            outputFileFormat: function(options) {
+            outputFileFormat: function (options) {
                 return `results-${new Date().getTime()}.xml`;
             }
         }]
@@ -168,7 +173,7 @@ exports.config = {
         // <boolean> Enable this config to treat undefined definitions as warnings.
         ignoreUndefinedDefinitions: false
     },
-    
+
     //
     // =====
     // Hooks
@@ -249,7 +254,7 @@ exports.config = {
      */
     // afterFeature: function (uri, feature, scenarios) {
     // },
-    
+
     /**
      * Runs after a WebdriverIO command gets executed
      * @param {String} commandName hook command name
@@ -287,10 +292,10 @@ exports.config = {
     // onComplete: function(exitCode, config, capabilities, results) {
     // },
     /**
-    * Gets executed when a refresh happens.
-    * @param {String} oldSessionId session ID of the old session
-    * @param {String} newSessionId session ID of the new session
-    */
+     * Gets executed when a refresh happens.
+     * @param {String} oldSessionId session ID of the old session
+     * @param {String} newSessionId session ID of the new session
+     */
     //onReload: function(oldSessionId, newSessionId) {
     //}
 }
