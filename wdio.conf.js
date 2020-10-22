@@ -55,12 +55,19 @@ exports.config = {
     // https://docs.saucelabs.com/reference/platforms-configurator
     //
     capabilities: [{
-        maxInstances: 3,
+        os: 'Windows',
+        os_version: '10',
         browserName: 'chrome',
     },
         {
-            maxInstances: 3,
-            browserName: 'firefox',
+        os: 'Windows',
+        os_version: '10',
+        browserName: 'firefox',
+    },
+        {
+            os: 'OS X',
+            os_version: 'Mojave',
+            browserName: 'safari',
         }],
 
     //
