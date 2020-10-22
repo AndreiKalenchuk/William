@@ -58,16 +58,22 @@ exports.config = {
         os: 'Windows',
         os_version: '10',
         browserName: 'chrome',
+        browserVersion : "86",
+        browserstackLocal: true,
     },
         {
         os: 'Windows',
         os_version: '10',
         browserName: 'firefox',
+            browserVersion : "81",
+            browserstackLocal: true,
     },
         {
             os: 'OS X',
-            os_version: 'Mojave',
+            os_version: 'Catalina',
             browserName: 'safari',
+            browserVersion : "13.0",
+            browserstackLocal: true
         }],
 
     //
@@ -117,7 +123,11 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['browserstack'],
+    services: [
+        ['browserstack',  {
+        browserstackLocal: true
+    }]
+    ],
 
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
