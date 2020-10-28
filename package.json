@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx wdio wdio.conf.js"
+    "BS": "npx wdio suite.BrowserStack.conf.js",
+    "local": "npx wdio suite.local.conf.js"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +23,7 @@
     "wdio-chromedriver-service": "^6.0.4"
   },
   "dependencies": {
+    "allure": "0.0.0",
     "axios": "^0.20.0",
     "browserstack-local": "^1.4.8"
   }
