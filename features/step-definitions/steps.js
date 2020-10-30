@@ -10,11 +10,11 @@ Given(/^I Open the (url|page) "([^"]*)?"$/,
     openWebsite
 );
 
-When(/^(.*) login with( not)* valid credentials$/,
+When(/^"([^"]*)?" login with( not)* valid credentials$/,
       login
 );
 
-Then(/^User( not)? on "([^"]*)" page$/,
+Then(/^User( not)* on "([^"]*)" page$/,
     verifyTitle
 );
 

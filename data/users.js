@@ -12,16 +12,22 @@ const countryName = 'BELARUS';
 
 module.exports = {
     admin: {
-        email: "admin@qa6.us",
-        password: 'admin'
+        email: 'admin@qa6.us',
+        password: 'admin',
+        firstName: 'AdminFirst',
+        lastName: 'AdminLast',
     },
     learner: {
-        email: "learner@qa6.us",
-        password: 'learner'
+        email: 'learner@qa6.us',
+        password: 'learner',
+        firstName: 'LearnerFirst',
+        lastName: 'LearnerLast',
     },
     student: {
-        email: "student@qa6.us",
-        password: 'student'
+        email: 'student@qa6.us',
+        password: 'student',
+        firstName: 'StudentFirst',
+        lastName: 'StudentLast',
     },
     invalid: {
         email: '1234@gmail.com',
