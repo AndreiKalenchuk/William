@@ -24,7 +24,7 @@ class LoginPage extends Page {
      * overwrite specifc options to adapt it to page object
      */
     open() {
-        return super.open('user/login');
+        super.open('user/login');
     }
 }
 module.exports = new LoginPage();

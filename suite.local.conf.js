@@ -10,15 +10,17 @@ exports.config = {
         // 'path/to/excluded/files'
     ],
 
-    maxInstances: 2,
+    maxInstances: 6,
 
     capabilities: [{
+        maxInstances: 10,
         browserName: 'chrome',
         acceptInsecureCerts: true
     },
-        {
-        browserName: 'firefox',
-    }],
+       /* {
+            maxInstances: 10,
+            browserName: 'firefox',
+        }*/],
 
     // Level of logging verbosity: trace | debug | info | warn | error | silent
     logLevel: 'silent',
