@@ -33,7 +33,7 @@ module.exports = {
         email: '1234@gmail.com',
         password: '1234',
     },
-    newUser: {
+    new: {
         email,
         password,
         firstName,

@@ -5,7 +5,7 @@ Feature: User with different roles can login
     When "<userRole>" login with valid credentials
     Then User on "profile" page
     And Log out
-    And User on "<login>" page
+    And User on "login" page
 
     Examples:
       | userRole |
