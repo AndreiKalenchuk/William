@@ -9,7 +9,6 @@ function apiCreateNewUser() {
     )
         .then(res => res)
         .catch(error => error);
-
 }
 
 function apiUserLogin(user) {
@@ -20,7 +19,30 @@ function apiUserLogin(user) {
         .then(response => response)
         .catch(error => console.log(error))
 }
-module.exports = { apiCreateNewUser, apiUserLogin };
+
+async function getAdminToken() {
+    await axios.post(`${host}/user/login`, {
+        email: users.admin.email,
+        password: users.admin.password,
+    })
+        .then(res => {
+            process.env.ADMIN_TOKEN = res.data.token;
+        })
+        .catch(error => console.log(error));
+}
+
+function adminGetUserById(user) {
+    const userRole = user === 'new' ? process.env.NEW_USER_ID : '';
+    return axios.get(`${host}/user/${userRole}`, {
+        headers: {
+            Authorization: process.env.ADMIN_TOKEN
+        }
+    })
+        .then(res => res)
+        .catch(error => console.log(error))
+}
+
+module.exports = {apiCreateNewUser, apiUserLogin, adminGetUserById, getAdminToken};
 
 /*
 after(async () => {

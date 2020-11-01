@@ -13,28 +13,28 @@ exports.config = {
 
     maxInstances: 10,
 
-    capabilities: [ {
+    capabilities: [{
         os: 'Windows',
         os_version: '10',
         browserName: 'chrome',
-        browserVersion : "86",
+        browserVersion: "86",
         browserstackLocal: true,
     },
         {
-        os: 'Windows',
-        os_version: '10',
-        browserName: 'firefox',
-            browserVersion : "81",
+            os: 'Windows',
+            os_version: '10',
+            browserName: 'firefox',
+            browserVersion: "81",
             browserstackLocal: true,
-    },
+        },
         {
             os: 'OS X',
             os_version: 'Catalina',
             browserName: 'safari',
-            browserVersion : "13.0",
+            browserVersion: "13.0",
             browserstackLocal: true
         }
-        ],
+    ],
 
 
     // Level of logging verbosity: trace | debug | info | warn | error | silent
@@ -58,7 +58,7 @@ exports.config = {
     // commands. Instead, they hook themselves up into the test process.
     services: [
         ['browserstack', {
-         //   browserstackLocal: true
+            //   browserstackLocal: true
         }]
     ],
 
@@ -80,14 +80,12 @@ exports.config = {
     reporters: [
         ['junit',
             {
-            outputDir: './report',
-            outputFileFormat: function (options) {
-                return `results-${new Date().getTime()}.xml`;
-            }
-        }]
+                outputDir: './report',
+                outputFileFormat: function (options) {
+                    return `results-${new Date().getTime()}.xml`;
+                }
+            }]
     ],
-
-
     //
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
@@ -118,8 +116,6 @@ exports.config = {
         // <boolean> Enable this config to treat undefined definitions as warnings.
         ignoreUndefinedDefinitions: false
     },
-
-    //
     // =====
     // Hooks
     // =====

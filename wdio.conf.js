@@ -3,24 +3,19 @@ exports.config = {
     runner: 'local',
 
     specs: [
-        './features/**/login.feature'
+        './features/**/*.feature'
     ],
 
     exclude: [
         // 'path/to/excluded/files'
     ],
 
-    maxInstances: 6,
+    maxInstances: 1,
 
     capabilities: [{
-        maxInstances: 10,
         browserName: 'chrome',
         acceptInsecureCerts: true
-    },
-       /* {
-            maxInstances: 10,
-            browserName: 'firefox',
-        }*/],
+    }],
 
     // Level of logging verbosity: trace | debug | info | warn | error | silent
     logLevel: 'silent',
