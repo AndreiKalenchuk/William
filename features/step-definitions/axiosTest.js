@@ -21,7 +21,7 @@ function apiUserLogin(user) {
 }
 
 async function getAdminToken() {
-    await axios.post(`${host}/user/login`, {
+    return await axios.post(`${host}/user/login`, {
         email: users.admin.email,
         password: users.admin.password,
     })
@@ -42,7 +42,40 @@ function adminGetUserById(user) {
         .catch(error => console.log(error))
 }
 
-module.exports = {apiCreateNewUser, apiUserLogin, adminGetUserById, getAdminToken};
+function settingsUpdate(userRole, update, newData) {
+    const userId = userRole === 'new' ? process.env.NEW_USER_ID : '';
+    const userToken = userRole === 'new' ? process.env.NEW_USER_TOKEN : '';
+    return axios.patch(`${host}/user/settings/${update}`, {
+            userId: userId,
+            oldPassword: users[userRole].password,
+            newPassword: newData,
+            confirmPassword: newData
+        },
+        {
+            headers: {
+                Authorization: userToken
+            }
+        }
+    )
+        .then(users[userRole].password = newData)
+        .catch(error => console.log(error))
+}
+
+function deleteUser(userRole) {
+    const userId = userRole === 'new' ? process.env.NEW_USER_ID : '';
+    return axios.delete(`${host}/user/${userId}`, {
+        headers: {
+            Authorization: process.env.ADMIN_TOKEN
+        }
+    })
+        .then(res => res)
+        .catch(error => console.log(error))
+}
+
+module.exports = {
+    apiCreateNewUser, apiUserLogin, adminGetUserById,
+    getAdminToken, settingsUpdate, deleteUser
+};
 
 /*
 after(async () => {

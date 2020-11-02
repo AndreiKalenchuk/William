@@ -1,5 +1,5 @@
 exports.config = {
-    user: process.env.BROWERSTACK_USERNAME,
+    user: process.env.BROWSERSTACK_USERNAME,
     key: process.env.BROWSERSTACK_KEY,
     runner: 'local',
 
@@ -24,21 +24,21 @@ exports.config = {
             os: 'Windows',
             os_version: '10',
             browserName: 'firefox',
-            browserVersion: "81",
+            browserVersion: "82",
             browserstackLocal: true,
         },
         {
             os: 'OS X',
             os_version: 'Catalina',
             browserName: 'safari',
-            browserVersion: "13.0",
+            browserVersion: "13.1",
             browserstackLocal: true
         }
     ],
 
 
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'info',
+    logLevel: 'error',
 
     bail: 0,
 
