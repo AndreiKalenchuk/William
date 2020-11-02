@@ -5,7 +5,10 @@ const {requestStatus} = require('../step-definitions/actions')
 const login = require('../step-definitions/my_actions/login');
 const verifyTitle = require('../step-definitions/my_actions/verifyTitle')
 const ProfilePage = require('../pageobjects/profile.page');
-const {apiCreateNewUser, apiUserLogin, adminGetUserById, getAdminToken} = require('./axiosTest');
+const {
+    apiCreateNewUser, apiUserLogin, adminGetUserById,
+    getAdminToken, settingsUpdate, deleteUser,
+} = require('./axiosTest');
 const users = require('../../data/users')
 
 Given(/^I Open the (url|page) "([^"]*)?"$/,
@@ -67,7 +70,7 @@ Then(/^Api login "([^"]*)"$/, async function (user) {
     }
 });
 Then(/^Admin get "([^"].*)" user by userId$/, async function (user) {
-    await getAdminToken();
+//    await getAdminToken();
     const response = await adminGetUserById(user);
     console.log(response);
     expect(response.status).toBe(200);
@@ -77,4 +80,12 @@ Then(/^Admin get "([^"].*)" user by userId$/, async function (user) {
     expect(response.data.goals).toBe(users[user].goals);
     const {roles} = response.data;
     expect(roles.includes(user)).toBe(true);
+});
+Then(/^"([^"]*)" user change "([^"]*)" to "([^"]*)"$/, async function (userRole, change, newData) {
+    const response = await settingsUpdate(userRole, change, newData);
+    expect(response.status).toBe(200);
+});
+Then(/^Delete "([^"]*)" user$/, async function (userRole) {
+    const response = await deleteUser(userRole);
+    expect(response.status).toBe(2009)
 });
