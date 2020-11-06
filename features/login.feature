@@ -15,5 +15,5 @@ Background: Given I Open the page "login"
 
   Scenario: Should not be log in with invalid credentials
     When "" login with not valid credentials
-    Then User not on "login" page
+    Then User on "login" page
 
