@@ -1,5 +1,5 @@
 Feature: User with different roles can login
-
+Background: Given I Open the page "login"
   Scenario Outline: As a existing user, I can log with valid credentials
     Given I Open the page "login"
     When "<userRole>" login with valid credentials
@@ -14,7 +14,6 @@ Feature: User with different roles can login
       | student  |
 
   Scenario: Should not be log in with invalid credentials
-    Given I Open the page "login"
     When "" login with not valid credentials
     Then User not on "login" page
 

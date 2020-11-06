@@ -20,6 +20,7 @@ exports.config = {
         browserVersion: "latest-beta",
         resolution: "1920x1080",
         'browserstack.debug': "true",
+        'browserstack.console': "errors"
     },
         {
             os: 'Windows',
@@ -28,6 +29,7 @@ exports.config = {
             browserVersion: "latest-beta",
             resolution: "1920x1080",
             'browserstack.debug': "true",
+            'browserstack.console': "errors"
         },
         {
             "os": "Windows",
@@ -37,6 +39,7 @@ exports.config = {
             "resolution": "2048x1536",
             'browserstack.debug': "true",
             "browserstack.selenium_version": "3.5.2",
+            'browserstack.console': "errors"
         },
         {
             os: 'OS X',
@@ -46,7 +49,8 @@ exports.config = {
             resolution: "1920x1080",
             'browserstack.debug': "true",
             "browserstack.safari.enablePopups": "true",
-            "browserstack.safari.allowAllCookies": "true"
+            "browserstack.safari.allowAllCookies": "true",
+            'browserstack.console': "errors"
         },
 
     ],
