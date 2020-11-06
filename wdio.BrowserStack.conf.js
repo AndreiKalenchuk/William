@@ -17,23 +17,30 @@ exports.config = {
         os: 'Windows',
         os_version: '10',
         browserName: 'chrome',
-        browserVersion: "86",
+        browserVersion: "latest-beta",
+        resolution : "1920x1080",
+        'browserstack.debug' : "true",
         browserstackLocal: true,
     },
         {
             os: 'Windows',
             os_version: '10',
             browserName: 'firefox',
-            browserVersion: "82",
+            browserVersion: "latest-beta",
+            resolution : "1920x1080",
+            'browserstack.debug' : "true",
             browserstackLocal: true,
         },
         {
             os: 'OS X',
             os_version: 'Catalina',
             browserName: 'safari',
-            browserVersion: "13.1",
+            browserVersion: "latest-beta",
+            resolution : "1920x1080",
+            'browserstack.debug' : "true",
             browserstackLocal: true
-        }
+        },
+
     ],
 
 
