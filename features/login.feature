@@ -16,5 +16,5 @@ Feature: User with different roles can login
   Scenario: Should not be log in with invalid credentials
     Given I Open the page "login"
     When "" login with not valid credentials
-    Then User on "login" page
+    Then User not on "login" page
 
